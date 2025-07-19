@@ -1,11 +1,21 @@
 from fastapi import FastAPI
 from mediaflow_proxy.main import app as mediaflow_app  # Import mediaflow app
+from fastapi.middleware.cors import CORSMiddleware
 import httpx
 import re
 import string
 
 # Initialize the main FastAPI application
 main_app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Manually add only non-static routes from mediaflow_app
 for route in mediaflow_app.routes:
