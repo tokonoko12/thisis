@@ -8,7 +8,7 @@ import string
 # Initialize the main FastAPI application
 main_app = FastAPI()
 
-app.add_middleware(
+main_app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
